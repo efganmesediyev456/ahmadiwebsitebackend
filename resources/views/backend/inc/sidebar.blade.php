@@ -89,6 +89,13 @@
                                     <span key="t-chat">Kategoriyalar</span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a href="{{ route('admin.service.index') }}" class="waves-effect">
+                                    <i class="bx bx-group"></i>
+                                    <span key="t-chat">Xidmətlər</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
