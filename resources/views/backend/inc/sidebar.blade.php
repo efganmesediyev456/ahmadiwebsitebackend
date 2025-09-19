@@ -35,6 +35,42 @@
                         </li>
 
 
+                         <li>
+                            <a href="{{route('admin.mobil_programs.index')}}" class="waves-effect">
+                                <i class="bx bx-group"></i> 
+                                <span key="t-chat">Mobil Programs</span>
+                            </a>
+                        </li>
+
+                         <li>
+                            <a href="{{route('admin.company_abouts.index')}}" class="waves-effect">
+                                <i class="bx bx-group"></i> 
+                                <span key="t-chat">Company About</span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="{{route('admin.work_flows.index')}}" class="waves-effect">
+                                <i class="bx bx-group"></i> 
+                                <span key="t-chat">Work Flow</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{route('admin.partners.index')}}" class="waves-effect">
+                                <i class="bx bx-group"></i> 
+                                <span key="t-chat">Partners</span>
+                            </a>
+                        </li>
+
+
+                        
+                       
+
+                       
+
+
                     </ul>
                 </li>
 

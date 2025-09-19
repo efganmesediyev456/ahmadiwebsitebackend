@@ -11,11 +11,7 @@ class SiteSetting extends BaseModel
     use HasFactory;
 
 
-    public $translatedAttributes = ['header_offer'];
+    public $translatedAttributes = ['address','terms_and_condition','start_a_project_url'];
 
-    protected $fillable = [
-        'header_logo',
-        'footer_logo',
-        'favicon'
-    ];
+    protected $guarded = [];
 }

@@ -1,11 +1,11 @@
 @extends('backend.layouts.layout')
 
 @section('content')
-<style>
-    img{
-        max-height: 100px;
-    }
-</style>
+    <style>
+        img {
+            max-height: 100px;
+        }
+    </style>
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -18,50 +18,78 @@
                     enctype="multipart/form-data">
                     @method('PUT')
 
-                    {{-- <ul class="nav nav-tabs" id="languageTabs" role="tablist">
+                    <ul class="nav nav-tabs" id="languageTabs" role="tablist">
 
-                    @foreach ($languages as $language)
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link @if ($loop->iteration == 1) active @endif" id="{{$language->code}}-tab" data-bs-toggle="tab" data-bs-target="#{{$language->code}}" type="button"
-                            role="tab" aria-controls="{{$language->code}}" aria-selected="true">{{$language->title}}
-                        </button>
-                    </li>
-                    @endforeach
-                </ul> --}}
+                        @foreach ($languages as $language)
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link @if ($loop->iteration == 1) active @endif"
+                                    id="{{ $language->code }}-tab" data-bs-toggle="tab"
+                                    data-bs-target="#{{ $language->code }}" type="button" role="tab"
+                                    aria-controls="{{ $language->code }}" aria-selected="true">{{ $language->title }}
+                                </button>
+                            </li>
+                        @endforeach
+                    </ul>
 
-                    {{-- <div class="tab-content mt-3" id="languageTabsContent">
-                    @foreach ($languages as $language) --}}
-                    {{-- <div class="tab-pane fade show @if ($loop->iteration == 1) active @endif" id="{{$language->code}}"
-                        role="tabpanel" aria-labelledby="{{$language->code}}-tab">
+                    <div class="tab-content mt-3" id="languageTabsContent">
+                        @foreach ($languages as $language)
+                            <div class="tab-pane fade show @if ($loop->iteration == 1) active @endif"
+                                id="{{ $language->code }}" role="tabpanel" aria-labelledby="{{ $language->code }}-tab">
 
-                        <div class="mb-3">
-                            <label for="header_offer" class="form-label">Xidmətlər Whatsapp Əlaqə {{$language->code}}</label>
-                            <input type="text" class="form-control" name="header_offer[{{$language->code}}]"
-                                id="header_offer[{{ $language->code }}]"
-                                placeholder="Daxil edin"
-                                value="{{$item->translate($language->code)?->header_offer}}">
-                        </div>
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address
+                                        {{ $language->code }}</label>
+                                    <input type="text" class="form-control" name="address[{{ $language->code }}]"
+                                        id="address[{{ $language->code }}]" placeholder="Daxil edin"
+                                        value="{{ $item->translate($language->code)?->address }}">
+                                </div>
 
-                    </div> --}}
-                    {{-- @endforeach
-                </div> --}}
+                                 <div class="mb-3">
+                                    <label for="terms_and_conditions" class="form-label">Terms and conditions
+                                        {{ $language->code }}</label>
+                                    <input type="text" class="form-control" name="terms_and_conditions[{{ $language->code }}]"
+                                        id="terms_and_conditions[{{ $language->code }}]" placeholder="Daxil edin"
+                                        value="{{ $item->translate($language->code)?->terms_and_conditions }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="start_a_project_url" class="form-label">Start a project
+                                        {{ $language->code }}</label>
+                                    <input type="text" class="form-control" name="start_a_project_url[{{ $language->code }}]"
+                                        id="start_a_project_url[{{ $language->code }}]" placeholder="Daxil edin"
+                                        value="{{ $item->translate($language->code)?->start_a_project_url }}">
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
 
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="header_logo" class="form-label">Xidmətlər vatsapa gedəcək nömrə</label>
-                                <input type="text" name="service_whatsapp_number" class="form-control"
-                                    value="{{ $item->service_whatsapp_number }}">
+                                <label for="map" class="form-label">Map</label>
+                                <input type="text" name="map" class="form-control"
+                                    value="{{ $item->map }}">
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label for="header_logo" class="form-label">Dərsliklər sifariş vatsapa gedəcək nömrə</label>
-                                <input type="text" name="whatsapp_textbook_number" class="form-control"
-                                    value="{{ $item->whatsapp_textbook_number }}">
+                                <label for="whats_app" class="form-label">Whats app</label>
+                                <input type="text" name="whats_app" class="form-control"
+                                    value="{{ $item->whats_app }}">
                             </div>
                         </div>
+
+                         <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="telegram" class="form-label">Telegram</label>
+                                <input type="text" name="telegram" class="form-control"
+                                    value="{{ $item->telegram }}">
+                            </div>
+                        </div>
+
+                        
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="header_logo" class="form-label">Header Logo</label>
@@ -73,20 +101,6 @@
                                 @endif
                             </div>
                         </div>
-                       
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="footer_logo" class="form-label">Footer Logo</label>
-                                <input type="file" name="footer_logo" class="form-control">
-                                <small class="text-muted d-block my-2">Tövsiyə olunan ölçü: 160x50 piksel</small>
-
-                                @if ($item->footer_logo)
-                                    <img width="300" src="{{ '/storage/' . $item->footer_logo }}" alt="Footer Logo">
-                                @endif
-                            </div>
-                        </div>
-
-
 
                         <div class="col-md-4">
                             <div class="mb-3">
@@ -98,59 +112,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon1" class="form-label">Header site icon1</label>
-                                <input type="file" name="header_site_icon1" class="form-control">
-                                @if ($item->header_site_icon1)
-                                    <img width="64" src="{{ '/storage/' . $item->header_site_icon1 }}" alt="Favicon">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon1" class="form-label">Header site url1</label>
-                                <input type="text" name="header_site_url1"
-                                    class="form-control"value="{{ $item->header_site_url1 }}">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon2" class="form-label">Header site icon2</label>
-                                <input type="file" name="header_site_icon2" class="form-control">
-                                @if ($item->header_site_icon2)
-                                    <img width="64" src="{{ '/storage/' . $item->header_site_icon2 }}" alt="Favicon">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon2" class="form-label">Header site url2</label>
-                                <input type="text" name="header_site_url2"
-                                    class="form-control"value="{{ $item->header_site_url2 }}">
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon2" class="form-label">Header site icon3</label>
-                                <input type="file" name="header_site_icon3" class="form-control">
-                                @if ($item->header_site_icon3)
-                                    <img width="64" src="{{ '/storage/' . $item->header_site_icon3 }}" alt="Favicon">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="header_site_icon3" class="form-label">Header site url3</label>
-                                <input type="text" name="header_site_url3"
-                                    class="form-control"value="{{ $item->header_site_url3 }}">
-                            </div>
-                        </div>
+                        
 
                     </div>
 
