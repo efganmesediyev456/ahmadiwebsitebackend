@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\Regulations\LanguageController;
 use App\Http\Controllers\Backend\Regulations\TranslationController;
+use App\Http\Controllers\Backend\ServiceCategoryController;
 use App\Http\Controllers\Backend\WorkFlowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Settings\SiteSettingController;
@@ -87,6 +88,15 @@ Route::middleware("auth:admin")->group(function () {
         Route::get('/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('.edit');
         Route::put('/{portfolio}', [PortfolioController::class, 'update'])->name('.update');
         Route::delete('/{portfolio}', [PortfolioController::class, 'destroy'])->name('.destroy');
+    });
+
+    Route::group(['prefix' => 'service-category', 'as' => '.service-category'], function () {
+        Route::get('/', [ServiceCategoryController::class, 'index'])->name('.index');
+        Route::get('/create', [ServiceCategoryController::class, 'create'])->name('.create');
+        Route::post('/', [ServiceCategoryController::class, 'store'])->name('.store');
+        Route::get('/{serviceCategory}/edit', [ServiceCategoryController::class, 'edit'])->name('.edit');
+        Route::put('/{serviceCategory}', [ServiceCategoryController::class, 'update'])->name('.update');
+        Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy'])->name('.destroy');
     });
 
 
