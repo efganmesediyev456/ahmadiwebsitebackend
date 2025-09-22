@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutTeamContentController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\CompanyAboutController;
+use App\Http\Controllers\Backend\CompanyAboutPageController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\MobilProgramController;
 use App\Http\Controllers\Backend\PartnerController;
@@ -9,6 +11,7 @@ use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\Regulations\LanguageController;
 use App\Http\Controllers\Backend\Regulations\TranslationController;
 use App\Http\Controllers\Backend\ServiceCategoryController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\WorkFlowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Settings\SiteSettingController;
@@ -141,7 +144,39 @@ Route::middleware("auth:admin")->group(function () {
     });
 
 
-    
+    Route::group(['prefix' => 'translations', 'as' => '.translations'], function () {
+        Route::get('/', [TranslationController::class, 'index'])->name('.index');
+        Route::get('/create', [TranslationController::class, 'create'])->name('.create');
+        Route::post('/store', [TranslationController::class, 'store'])->name('.store');
+        Route::get('/{item}/edit', [TranslationController::class, 'edit'])->name('.edit');
+        Route::put('/{item}/update', [TranslationController::class, 'update'])->name('.update');
+        Route::delete('/{item}', [TranslationController::class, 'delete'])->name('.destroy');
+    });
+
+
+
+    Route::group(['prefix' => 'company-about', 'as' => '.company_about'], function () {
+        Route::get('/', [CompanyAboutPageController::class, 'index'])->name('.index');
+        Route::put('/{item}/update', [CompanyAboutPageController::class, 'update'])->name('.update');
+    });
+
+
+
+    Route::group(['prefix' => 'about-team', 'as' => '.about_team'], function () {
+        Route::get('/', [AboutTeamContentController::class, 'index'])->name('.index');
+        Route::put('/{item}/update', [AboutTeamContentController::class, 'update'])->name('.update');
+    });
+
+
+    Route::group(['prefix' => 'teams', 'as' => '.teams'], function () {
+        Route::get('/', [TeamController::class, 'index'])->name('.index');
+        Route::get('/create', [TeamController::class, 'create'])->name('.create');
+        Route::post('/', [TeamController::class, 'store'])->name('.store');
+        Route::get('/{team}/edit', [TeamController::class, 'edit'])->name('.edit');
+        Route::put('/{team}', [TeamController::class, 'update'])->name('.update');
+        Route::delete('/{team}', [TeamController::class, 'destroy'])->name('.destroy');
+    });
+
 
 
 

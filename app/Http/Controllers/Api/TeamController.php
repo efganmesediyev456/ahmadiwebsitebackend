@@ -6,24 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\BannerDetail;
 use App\Http\Resources\BannerResource;
-use App\Models\MobilProgram;
-use App\Models\Partner;
 use App\Models\Portfolio;
+use App\Models\Team;
 
 
-class PartnerController extends Controller
+class TeamController extends Controller
 {
-   
-
     public function index()
     {
-
-        $portfolios = Partner::get();
+        $portfolios = Team::get();
         $data = $portfolios->map(function($portfolio){
             return [
-                'id'=>$portfolio->id, 
-                'url'=>$portfolio->url,
-                'floor'=>$portfolio->floor,
+                'id'=>$portfolio->id,
+                'name'=>$portfolio->name,
+                'position'=>$portfolio->position,
+                'ln_url'=>$portfolio->ln_url,
+                'be_url'=>$portfolio->be_url,
                 'image'=>url('/storage/'.$portfolio->image)
             ];
         });

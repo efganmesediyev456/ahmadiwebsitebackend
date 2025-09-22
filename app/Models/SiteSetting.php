@@ -13,5 +13,5 @@ class SiteSetting extends BaseModel
 
     public $translatedAttributes = ['address','terms_and_condition','start_a_project_url'];
 
-    protected $guarded = [];
+    public $guarded = [];
 }
