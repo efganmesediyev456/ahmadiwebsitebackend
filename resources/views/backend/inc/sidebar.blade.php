@@ -74,6 +74,13 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{ route('admin.social-link.index') }}" class="waves-effect">
+                        <i class="bx bx-group"></i>
+                        <span key="t-chat">Sosial linklər</span>
+                    </a>
+                </li>
+
                 <ul class="metismenu list-unstyled" id="side-menu">
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">

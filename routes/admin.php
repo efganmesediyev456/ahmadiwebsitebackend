@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Regulations\LanguageController;
 use App\Http\Controllers\Backend\Regulations\TranslationController;
 use App\Http\Controllers\Backend\ServiceCategoryController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\SocialLinkController;
 use App\Http\Controllers\Backend\WorkFlowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Settings\SiteSettingController;
@@ -91,6 +92,8 @@ Route::middleware("auth:admin")->group(function () {
         Route::delete('/{portfolio}', [PortfolioController::class, 'destroy'])->name('.destroy');
     });
 
+
+    /********** Service Category **********/
     Route::group(['prefix' => 'service-category', 'as' => '.service-category'], function () {
         Route::get('/', [ServiceCategoryController::class, 'index'])->name('.index');
         Route::get('/create', [ServiceCategoryController::class, 'create'])->name('.create');
@@ -100,6 +103,7 @@ Route::middleware("auth:admin")->group(function () {
         Route::delete('/{serviceCategory}', [ServiceCategoryController::class, 'destroy'])->name('.destroy');
     });
 
+    /********** Service **********/
     Route::group(['prefix' => 'service', 'as' => '.service'], function () {
         Route::get('/', [ServiceController::class, 'index'])->name('.index');
         Route::get('/create', [ServiceController::class, 'create'])->name('.create');
@@ -107,6 +111,16 @@ Route::middleware("auth:admin")->group(function () {
         Route::get('/{serviceCategory}/edit', [ServiceController::class, 'edit'])->name('.edit');
         Route::put('/{serviceCategory}', [ServiceController::class, 'update'])->name('.update');
         Route::delete('/{serviceCategory}', [ServiceController::class, 'destroy'])->name('.destroy');
+    });
+
+    /********** Social Link **********/
+    Route::group(['prefix' => 'social-link', 'as' => '.social-link'], function () {
+        Route::get('/', [SocialLinkController::class, 'index'])->name('.index');
+        Route::get('/create', [SocialLinkController::class, 'create'])->name('.create');
+        Route::post('/', [SocialLinkController::class, 'store'])->name('.store');
+        Route::get('/{serviceCategory}/edit', [SocialLinkController::class, 'edit'])->name('.edit');
+        Route::put('/{serviceCategory}', [SocialLinkController::class, 'update'])->name('.update');
+        Route::delete('/{serviceCategory}', [SocialLinkController::class, 'destroy'])->name('.destroy');
     });
 
 
