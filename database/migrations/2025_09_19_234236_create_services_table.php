@@ -13,7 +13,30 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('service_categories')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('service_translations', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('service_id');
+            $table->string('locale')->index();
+            $table->string('title');
+            $table->longText('description')->nullable();
+            $table->timestamps();
+
+            $table->unique(['service_id', 'locale']);
+
+            $table->foreign('service_id')
+                ->references('id')
+                ->on('services')
+                ->onDelete('cascade');
         });
     }
 
@@ -22,6 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('service_translations');
         Schema::dropIfExists('services');
     }
 };

@@ -22,7 +22,7 @@ class SocialLinksDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($row) {
-                return view('backend.pages.social_links.action', compact('row'))->render();
+                return view('backend.pages.social-link.action', compact('row'))->render();
             })
             ->addColumn('image', function ($row) {
                 if ($row->image) {
