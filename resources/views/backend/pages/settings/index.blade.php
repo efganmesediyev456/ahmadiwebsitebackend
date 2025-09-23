@@ -45,11 +45,11 @@
                                 </div>
 
                                  <div class="mb-3">
-                                    <label for="terms_and_conditions" class="form-label">Terms and conditions
+                                    <label for="terms_and_condition" class="form-label">Terms and conditions
                                         {{ $language->code }}</label>
-                                    <input type="text" class="form-control" name="terms_and_conditions[{{ $language->code }}]"
-                                        id="terms_and_conditions[{{ $language->code }}]" placeholder="Daxil edin"
-                                        value="{{ $item->translate($language->code)?->terms_and_conditions }}">
+                                    <input type="text" class="form-control" name="terms_and_condition[{{ $language->code }}]"
+                                        id="terms_and_condition[{{ $language->code }}]" placeholder="Daxil edin"
+                                        value="{{ $item->translate($language->code)?->terms_and_condition }}">
                                 </div>
 
                                 <div class="mb-3">

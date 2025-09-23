@@ -14,6 +14,7 @@ class BannerController extends Controller
 
     public function index()
     {
+
         $banner = Banner::first();
         return new BannerResource($banner);
     }

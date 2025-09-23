@@ -46,6 +46,7 @@ class SiteSettingController extends Controller
                 $data['favicon'] = FileUploadHelper::uploadFile($request->file('favicon'), "settings", 'favicon_'.uniqid(), 'public', false);
             }
             
+         
            
         
             $item = $this->mainService->save($item, $data);

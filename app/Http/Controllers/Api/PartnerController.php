@@ -17,6 +17,7 @@ class PartnerController extends Controller
 
     public function index()
     {
+
         $portfolios = Partner::get();
         $data = $portfolios->map(function($portfolio){
             return [

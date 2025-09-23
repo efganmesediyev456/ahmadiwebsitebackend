@@ -14,61 +14,63 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
-                            <a href="{{route('admin.banner.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                            <a href="{{ route('admin.banner.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Banner</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('admin.banner-details.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                            <a href="{{ route('admin.banner-details.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Banner Details</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('admin.portfolios.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                            <a href="{{ route('admin.portfolios.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Portfolios</span>
                             </a>
                         </li>
 
 
-                         <li>
-                            <a href="{{route('admin.mobil_programs.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                        <li>
+                            <a href="{{ route('admin.mobil_programs.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Mobil Programs</span>
                             </a>
                         </li>
 
-                         <li>
-                            <a href="{{route('admin.company_abouts.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                        <li>
+                            <a href="{{ route('admin.company_abouts.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Company About</span>
                             </a>
                         </li>
 
 
                         <li>
-                            <a href="{{route('admin.work_flows.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                            <a href="{{ route('admin.work_flows.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Work Flow</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="{{route('admin.partners.index')}}" class="waves-effect">
-                                <i class="bx bx-group"></i> 
+                            <a href="{{ route('admin.partners.index') }}" class="waves-effect">
+                                <i class="bx bx-group"></i>
                                 <span key="t-chat">Partners</span>
                             </a>
                         </li>
 
 
-                        
-                       
 
-                       
+
+
+
+
+
 
 
                     </ul>
@@ -110,6 +112,12 @@
 
 
 
+                <li>
+                    <a href="{{ route('admin.translations.index') }}" class="waves-effect">
+                        <i class="bx bx-group"></i>
+                        <span key="t-chat">Tərcümələr</span>
+                    </a>
+                </li>
 
 
                 <li>
@@ -119,10 +127,62 @@
                     </a>
                 </li>
 
+
+                <li>
+                    <a href="{{ route('admin.company_about.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Şirkət Haqqında</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('admin.about_team.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Şirkət Team Haqqında</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('admin.teams.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Teams</span>
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="{{ route('admin.managements.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Managements</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('admin.our_studio_galleries.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Our Studio Gallery</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.whoWeDo.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Who We Do</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.whoWeDoItem.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Who We Do Items</span>
+                    </a>
+                </li>
+
             </ul>
-
-
-
         </div>
         <!-- Sidebar -->
     </div>

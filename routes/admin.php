@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutTeamContentController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\CompanyAboutController;
+use App\Http\Controllers\Backend\CompanyAboutPageController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\ManagementController;
 use App\Http\Controllers\Backend\MobilProgramController;
+use App\Http\Controllers\Backend\OurStudioGalleryController;
 use App\Http\Controllers\Backend\PartnerController;
 use App\Http\Controllers\Backend\PortfolioController;
 use App\Http\Controllers\Backend\Regulations\LanguageController;
@@ -11,6 +15,9 @@ use App\Http\Controllers\Backend\Regulations\TranslationController;
 use App\Http\Controllers\Backend\ServiceCategoryController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SocialLinkController;
+use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\WhoWeDoController;
+use App\Http\Controllers\Backend\WhoWeDoItemController;
 use App\Http\Controllers\Backend\WorkFlowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Settings\SiteSettingController;
@@ -165,7 +172,78 @@ Route::middleware("auth:admin")->group(function () {
     });
 
 
-    
+    Route::group(['prefix' => 'translations', 'as' => '.translations'], function () {
+        Route::get('/', [TranslationController::class, 'index'])->name('.index');
+        Route::get('/create', [TranslationController::class, 'create'])->name('.create');
+        Route::post('/store', [TranslationController::class, 'store'])->name('.store');
+        Route::get('/{item}/edit', [TranslationController::class, 'edit'])->name('.edit');
+        Route::put('/{item}/update', [TranslationController::class, 'update'])->name('.update');
+        Route::delete('/{item}', [TranslationController::class, 'delete'])->name('.destroy');
+    });
+
+
+
+    Route::group(['prefix' => 'company-about', 'as' => '.company_about'], function () {
+        Route::get('/', [CompanyAboutPageController::class, 'index'])->name('.index');
+        Route::put('/{item}/update', [CompanyAboutPageController::class, 'update'])->name('.update');
+    });
+
+
+
+    Route::group(['prefix' => 'about-team', 'as' => '.about_team'], function () {
+        Route::get('/', [AboutTeamContentController::class, 'index'])->name('.index');
+        Route::put('/{item}/update', [AboutTeamContentController::class, 'update'])->name('.update');
+    });
+
+
+    Route::group(['prefix' => 'teams', 'as' => '.teams'], function () {
+        Route::get('/', [TeamController::class, 'index'])->name('.index');
+        Route::get('/create', [TeamController::class, 'create'])->name('.create');
+        Route::post('/', [TeamController::class, 'store'])->name('.store');
+        Route::get('/{team}/edit', [TeamController::class, 'edit'])->name('.edit');
+        Route::put('/{team}', [TeamController::class, 'update'])->name('.update');
+        Route::delete('/{team}', [TeamController::class, 'destroy'])->name('.destroy');
+    });
+
+
+    Route::group(['prefix' => 'managements', 'as' => '.managements'], function () {
+        Route::get('/', [ManagementController::class, 'index'])->name('.index');
+        Route::get('/create', [ManagementController::class, 'create'])->name('.create');
+        Route::post('/', [ManagementController::class, 'store'])->name('.store');
+        Route::get('/{management}/edit', [ManagementController::class, 'edit'])->name('.edit');
+        Route::put('/{management}', [ManagementController::class, 'update'])->name('.update');
+        Route::delete('/{management}', [ManagementController::class, 'destroy'])->name('.destroy');
+    });
+
+    Route::group(['prefix' => 'our-studio-galleries', 'as' => '.our_studio_galleries'], function () {
+        Route::get('/', [OurStudioGalleryController::class, 'index'])->name('.index');
+        Route::get('/create', [OurStudioGalleryController::class, 'create'])->name('.create');
+        Route::post('/', [OurStudioGalleryController::class, 'store'])->name('.store');
+        Route::get('/{ourStudioGallery}/edit', [OurStudioGalleryController::class, 'edit'])->name('.edit');
+        Route::put('/{ourStudioGallery}', [OurStudioGalleryController::class, 'update'])->name('.update');
+        Route::delete('/{ourStudioGallery}', [OurStudioGalleryController::class, 'destroy'])->name('.destroy');
+    });
+
+
+    Route::group(['prefix' => 'who-we-do', 'as' => '.whoWeDo'], function () {
+        Route::get('/', [WhoWeDoController::class, 'index'])->name('.index');
+        Route::get('/create', [WhoWeDoController::class, 'create'])->name('.create');
+        Route::post('/', [WhoWeDoController::class, 'store'])->name('.store');
+        Route::get('/{whoWeDo}/edit', [WhoWeDoController::class, 'edit'])->name('.edit');
+        Route::put('/{whoWeDo}', [WhoWeDoController::class, 'update'])->name('.update');
+        Route::delete('/{whoWeDo}', [WhoWeDoController::class, 'destroy'])->name('.destroy');
+    });
+
+    Route::group(['prefix' => 'who-we-do-item', 'as' => '.whoWeDoItem'], function () {
+        Route::get('/', [WhoWeDoItemController::class, 'index'])->name('.index');
+        Route::get('/create', [WhoWeDoItemController::class, 'create'])->name('.create');
+        Route::post('/', [WhoWeDoItemController::class, 'store'])->name('.store');
+        Route::get('/{whoWeDoItem}/edit', [WhoWeDoItemController::class, 'edit'])->name('.edit');
+        Route::put('/{whoWeDoItem}', [WhoWeDoItemController::class, 'update'])->name('.update');
+        Route::delete('/{whoWeDoItem}', [WhoWeDoItemController::class, 'destroy'])->name('.destroy');
+    });
+
+
 
 
 
