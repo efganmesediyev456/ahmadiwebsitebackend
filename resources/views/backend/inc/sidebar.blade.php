@@ -138,12 +138,37 @@
                 </li>
 
 
-                
+
+                <li>
+                    <a href="{{ route('admin.managements.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Managements</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('admin.our_studio_galleries.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Our Studio Gallery</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.whoWeDo.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Who We Do</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.whoWeDoItem.index') }}" class="waves-effect">
+                        <i class="bx bx-slider-alt"></i> {{-- Sayt parametrləri üçün uyğun ikon --}}
+                        <span key="t-chat">Who We Do Items</span>
+                    </a>
+                </li>
 
             </ul>
-
-
-
         </div>
         <!-- Sidebar -->
     </div>

@@ -23,5 +23,10 @@ Route::get('/translations', [TranslationController::class, 'index']);
 Route::get('/company-about-page', [CompanyAboutPageController::class, 'index']);
 Route::get('/company-team-about', [CompanyAboutPageController::class, 'aboutTeam']);
 Route::get('/teams', [TeamController::class, 'index']);
+Route::get('/managements', [TeamController::class, 'getManagements']);
+Route::get('/our-studio-galleries', [TeamController::class, 'ourStudioGalleries']);
+Route::get('/who-we-do-items', [TeamController::class, 'getWhoWeDoItems']);
+
+
 
 
